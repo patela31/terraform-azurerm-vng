@@ -14,9 +14,11 @@ Types of resources are supported:
 ## Module Usage
 
 ```hcl
-module "vpn-gateway" {
-  source  = "kumarvna/vpn-gateway/azurerm"
-  version = "1.1.0"
+module "vng" {
+  source  = "patelavtx/vng/azurerm"
+  version = "1.0.0"
+  # insert the 5 required variables here
+}
 
   # Resource Group, location, VNet and Subnet details
   # IPSec Site-to-Site connection configuration requirements
@@ -41,7 +43,7 @@ module "vpn-gateway" {
     Env          = "dev"
     Owner        = "user@example.com"
     BusinessUnit = "CORP"
-    ServiceClass = "Gold"
+    ServiceClass = "Platinum"
   }
 }
 ```
