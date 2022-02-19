@@ -1,5 +1,9 @@
 # Virtual Network Gateway terraform module
-(Taken from - kumarvna/vpn-gateway/azurerm to test out)
+
+```hcl
+Taken from ; credit to  source  = "kumarvna/vpn-gateway/azurerm"
++ Using to test out VNG-ER
+```
 Terraform module to create a Virtual Network Gateway to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. Supports both VPN and ExpressRoute gateway types. VPN configuration supports ExpressRoute (private connection), Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel). Optional active-active mode and point-to-site supported as well.
 
 >## *Virtual network gateway deployments can take as much as 30 minutes to complete.
