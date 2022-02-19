@@ -2,7 +2,8 @@
 
 Terraform module to create a Virtual Network Gateway to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. Supports both VPN and ExpressRoute gateway types. VPN configuration supports ExpressRoute (private connection), Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel). Optional active-active mode and point-to-site supported as well.
 
->## *Creating a virtual network gateway can take up to **45 minutes** to complete. When you create a virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specify*  
+>## *Virtual network gateway deployments can take as much as 30 minutes to complete.
+Gateway VMs are deployed to the GatewaySubnet (reserved subnet name in Azure for VNGs) in the VNET*  
 
 Types of resources are supported:
 
@@ -58,11 +59,12 @@ module "vpn-gateway" {
 
 4. Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections cannot establish if the policies are incompatible.
 
-## `GatewaySubnet` - Do I need a GatewaySubnet?
+## `GatewaySubnet` 
 
-Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your VNet in order to configure a virtual network gateway. All gateway subnets must be named 'GatewaySubnet' to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
+A 'GatewaySubnet' subnet in your VNet is needed to deploy a VNG and work properly, this name is reserved for VNG deployment only, don't deploy other resources such as VMs. 
 
-When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway service. Some configurations require more IP addresses to be allocated to the gateway services than do others. You want to make sure your gateway subnet contains enough IP addresses to accommodate future growth and possible additional new connection configurations. So, while you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26, /25 etc.).
+The gateway subnet IPs are allocated to the gateway service.  A gateway subnet can range from  /29, recommendation of /27 or larger (/27, /26, /25 etc.).
+
 
 ## `local_networks_ipsec_policy` Virtual Network Gateway Connection IPSec Policy  
 
