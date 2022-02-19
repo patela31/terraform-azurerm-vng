@@ -16,7 +16,7 @@ Types of resources are supported:
 ```hcl
 module "vng" {
   source  = "patelavtx/vng/azurerm"
-  version = "1.0.0"
+  version = "1.1.0"
   # insert the 5 required variables here
 }
 
