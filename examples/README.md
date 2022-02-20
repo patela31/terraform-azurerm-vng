@@ -7,8 +7,8 @@ Terraform module to create a Virtual Network Gateway to send encrypted traffic b
 ### ExpressRoute VPN Gateway (private connection)
 
 ```hcl
-module "vpn-gateway" {
-  source  = "kumarvna/vpn-gateway/azurerm"
+module "vng" {
+  source  = "patelavtx/vng/azurerm"
   version = "1.1.0"
 
   # Resource Group, location, VNet and Subnet details
@@ -37,8 +37,8 @@ module "vpn-gateway" {
 ### Site-to-Site VPN Gateway (IPsec/IKE VPN tunnel)
 
 ```hcl
-module "vpn-gateway" {
-  source  = "kumarvna/vpn-gateway/azurerm"
+module "vng" {
+  source  = "patelavtx/vng/azurerm"
   version = "1.1.0"
 
   # Resource Group, location, VNet and Subnet details
@@ -72,8 +72,8 @@ module "vpn-gateway" {
 ### Point-to-Site VPN Gateway
 
 ```hcl
-module "vpn-gateway" {
-  source  = "kumarvna/vpn-gateway/azurerm"
+module "vng" {
+  source  = "patelavtx/vng/azurerm"
   version = "1.1.0"
 
   # Resource Group, location, VNet and Subnet details
