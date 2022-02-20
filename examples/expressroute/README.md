@@ -5,8 +5,8 @@ Terraform module to create a Virtual Network Gateway to send encrypted traffic b
 ## Module Usage
 
 ```hcl
-module "vpn-gateway" {
-  source  = "kumarvna/vpn-gateway/azurerm"
+module "vng" {
+  source  = "patelavtx/vng/azurerm"
   version = "1.1.0"
 
   # Resource Group, location, VNet and Subnet details
