@@ -138,6 +138,7 @@ resource "azurerm_virtual_network_gateway_connection" "az-hub-onprem" {
   location                        = data.azurerm_resource_group.rg.location
   type                            = var.gateway_connection_type
   virtual_network_gateway_id      = azurerm_virtual_network_gateway.vpngw.id
+  authorization_key               = var.gateway_connection_type == "ExpressRoute" ? var.authorization_key : null
   local_network_gateway_id        = var.gateway_connection_type != "ExpressRoute" ? azurerm_local_network_gateway.localgw[count.index].id : null
   express_route_circuit_id        = var.gateway_connection_type == "ExpressRoute" ? var.express_route_circuit_id : null
   peer_virtual_network_gateway_id = var.gateway_connection_type == "Vnet2Vnet" ? var.peer_virtual_network_gateway_id : null

@@ -106,6 +106,11 @@ variable "gateway_connection_type" {
   default     = "IPsec"
 }
 
+variable "authorization_key" {
+  description = "Optional - authorization key with ER cct"
+  default     = null
+}
+
 variable "express_route_circuit_id" {
   description = "The ID of the Express Route Circuit when creating an ExpressRoute connection"
   default     = null
