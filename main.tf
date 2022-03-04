@@ -158,5 +158,8 @@ resource "azurerm_virtual_network_gateway_connection" "az-hub-onprem" {
       sa_lifetime      = var.local_networks_ipsec_policy.sa_lifetime
     }
   }
+  depends_on = [
+   azurerm_virtual_network_gateway.vpngw
+  ]
   tags = merge({ "ResourceName" = var.gateway_connection_type == "ExpressRoute" ? "localgw-expressroute-connection" : "localgw-connection-${var.local_networks[count.index].local_gw_name}" }, var.tags, )
 }
